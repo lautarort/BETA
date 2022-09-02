@@ -1,12 +1,14 @@
 
 import { ChakraProvider, Stack, Button, Input, Text, InputGroup, InputRightElement } from '@chakra-ui/react'
 import { HamburgerIcon, SearchIcon } from '@chakra-ui/icons'
+import theme from '../theme'
+
 
 function MyApp({ Component, pageProps }) {
   return (
-    <ChakraProvider>
-      <Stack padding={4} borderBottomWidth={1} borderBottomColor="gray.300">
-        <Stack direction="row" justifyContent="space-between">
+    <ChakraProvider theme={theme}>
+      <Stack paddingX={4} borderBottomWidth={1} borderBottomColor="gray.300">
+        <Stack alignItems="center" direction="row" justifyContent="space-between">
           <Stack direction="row" spacing={12}>
             <Button leftIcon={<HamburgerIcon width={6} height={6} />} variant='link'>
               Menu
@@ -25,18 +27,28 @@ function MyApp({ Component, pageProps }) {
           <Text
             color="linkedin.500"
             fontSize='4xl'
+            flex={1}
             fontWeight='bold'
             fontFamily='sans'
             lineHeight='normal'
+            textAlign='center'
           >
             NOASOFTFACT
           </Text>
-          <div>seccion derecha</div>
+          <Stack
+            flex={1}
+            textAlign='right'
+            direction="row"
+            justifyContent='flex-end'
+          >
+            <Button colorScheme="primary">Sucribete</Button>
+            <Button>Ingresa</Button>
+          </Stack>
         </Stack>
       </Stack>
       <Component {...pageProps} />
       <footer>
-        ...adios
+        ...
       </footer>
     </ChakraProvider>
   )
